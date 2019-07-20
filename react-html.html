@@ -12,6 +12,7 @@
   <body>
     <div id="root"></div>
     <script type="text/babel">
+
       function Welcome (props) {
         return <div>Bienvenido(a) {props.name} </div>
       }
@@ -28,8 +29,27 @@
         }
       }
 
+      function Iniciales (props) {
+        let iniciales = ''
+        console.log(props)
+        console.log(props.nombres)
+        console.log(props.apellidos)
+        props.nombres.split(' ').forEach(nombre => {
+          iniciales += nombre.charAt(0)
+        })
+        props.apellidos.split(' ').forEach(apellido => {
+          iniciales += apellido.charAt(0)
+        })
+        return <p>{props.nombres} { props.apellidos} { iniciales }</p>
+      }
+
+
+
       ReactDOM.render(
         <div>
+          <Iniciales nombres="Raul Alexandro" apellidos="Rodriguez Trejo"/>
+          <Iniciales nombres="Angel" apellidos="Martínez Sánchez"/>
+          <Iniciales nombres="María Teresa Ariadna" apellidos="Matus Avendaño"/>
           <Welcome name="Isaac"/>
           <Welcome name="Nancy"/>
           <Welcome name="Clemente"/>

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-  <title>Mongoose intro</title>
+  <title>React intro</title>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/css/reveal.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/css/theme/black.css">
@@ -113,8 +113,9 @@
             La principal diferencia entre un dump y un smart component es que el smart tiene la capacidad de mantener y manipular su propio state
           </p>
         </section>
-        <section>
-          <pre><code data-trim contenteditable >
+        <section id="ejemplo" data-markdown>
+          <textarea data-template>
+            ``` js
             function Welcome(props) {
               return <h1>Hello, {props.name}</h1>;
             }
@@ -133,7 +134,8 @@
               <App />,
               document.getElementById('root')
             );
-          </code></pre>
+            ```
+          </textarea>
         </section>
       </section>
       <section>
