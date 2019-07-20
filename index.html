@@ -140,7 +140,7 @@
       </section>
       <section>
         <section>
-          <h4> template React simple</h4>
+          <h4> template React simple con Babel</h4>
         </section>
         <section>
           <pre><code data-trim>
@@ -180,6 +180,42 @@
               </body>
             </html>
           </code></pre>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h2>State & Props</h2>
+        </section>        
+        <section>
+          <h4>Las PROPS de un Componenent son READ-ONLY</h4>
+          <p>Nunca hay que modificarlas. Kind of constantes</p>
+          <p>Se definen en la definición del Componente como atributos del tag HTML</p>
+          <pre><code data-trim>
+              <TengoONoMensajes mensajes={['hola', 'adios']}/>
+              <ConOSinSubtitulo titulo="Hola" subtitulo="Adios" muestraSubtitulo={true} />
+          </code></pre>
+        </section>
+        <section>
+          <h4>State es exclusivo de cada componente. Solo para SMART Components</h4>
+          <p>Se define dentro del método constructor</p>
+          <pre><code data-trim>
+              constructor (props) {
+                super(props)
+                console.log('constructor')
+                this.state = {
+                  time: new Date().toLocaleTimeString()
+                }
+              }
+          </code></pre>
+        </section>
+        <section>
+          <h5>Para modificarlo hay que utilizar el método setState</h5>
+          <pre><code data-trim>
+              this.setState({
+                time: new Date().toLocaleTimeString()
+              })
+          </code></pre>
+          <p>Sólo modificará los campos enviados</p>
         </section>
       </section>
     </div>

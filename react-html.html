@@ -17,6 +17,9 @@
         return <div>Bienvenido(a) {props.name} </div>
       }
 
+      // Como agrego una lista de elementos
+      // lo tengo que guardar en una variable
+      // casi siempre se ocupa el método de arreglos .map
       class Listado extends React.Component {
         render () {
           console.log('Listado props.lista', this.props.lista)
@@ -43,10 +46,62 @@
         return <p>{props.nombres} { props.apellidos} { iniciales }</p>
       }
 
+      
+      // muestra o no bajo una condicion
+      // kind of like IF
+      let ConOSinSubtitulo = (props) => {
+        // Un componente de react puede también definirse con Arrow funcs
+
+        // props.titulo String
+        // props.subtitulo String
+        // props.muestraSubtitulo Boolean
+
+        return <div>
+          <h1> {props.titulo} </h1>
+          {
+            props.muestraSubtitulo && 
+            <h2>{props.subtitulo}</h2>
+          }  
+        </div>
+      } 
+
+      // kind of If... Else...
+
+      let TengoONoMensajes = (props) => {
+        // props.mensajes => [String]
+
+        console.log(props)
+        
+        let mensajes = 
+        props.mensajes ?
+          props.mensajes.map(elem => <li>{elem}</li>) 
+            :
+          []
+
+        return <div>
+          {
+            props.mensajes && props.mensajes.length > 0 
+              ?
+            <ul>
+              { mensajes }
+            </ul>
+              :
+            <p>No tienes mensajes</p>
+          }
+        </div>
+      }
+
+
+
 
 
       ReactDOM.render(
         <div>
+          <TengoONoMensajes />
+          <TengoONoMensajes mensajes={[]}/>
+          <TengoONoMensajes mensajes={['hola', 'adios']}/>
+          <ConOSinSubtitulo titulo="Hola" subtitulo="Adios" muestraSubtitulo={true} />
+          <ConOSinSubtitulo titulo="Hola" subtitulo="Adios" muestraSubtitulo={false} />
           <Iniciales nombres="Raul Alexandro" apellidos="Rodriguez Trejo"/>
           <Iniciales nombres="Angel" apellidos="Martínez Sánchez"/>
           <Iniciales nombres="María Teresa Ariadna" apellidos="Matus Avendaño"/>
