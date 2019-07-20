@@ -16,16 +16,26 @@
         return <div>Bienvenido(a) {props.name} </div>
       }
 
-      // class Listado extends React.Component {
-      //   render () {
-      //     return <h1>Hello, {props.name}</h1>
-      //   }
-      // }
+      class Listado extends React.Component {
+        render () {
+          console.log('Listado props.lista', this.props.lista)
+
+          let lista = this.props.lista.map(elem => <li>{elem}</li>)
+          console.log('Listado lista', lista)
+          return <ul>
+            { lista }
+          </ul>
+        }
+      }
+
       ReactDOM.render(
         <div>
           <Welcome name="Isaac"/>
           <Welcome name="Nancy"/>
           <Welcome name="Clemente"/>
+          <Listado lista={ [1,2,3] }/>
+          <Listado lista={ [4,5,6,7] }/>
+          <Listado lista={ ['a', 'b', 'c'] }/>
         </div>
         , document.getElementById('root'))
     </script>
