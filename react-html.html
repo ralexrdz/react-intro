@@ -12,22 +12,20 @@
   <body>
     <div id="root"></div>
     <script type="text/babel">
-      // function Welcome (props) {
-      //   return <div>Bienvenido(a) {props.name} </div>
-      // }
-      class Listador extends React.Component {
-        render () {
-          const lista = this.props.arr.map((elem, index) => {
-            return <li key={index}>{elem}</li>
-          })
-          return <ul>
-            { lista }
-            </ul>
-        }
+      function Welcome (props) {
+        return <div>Bienvenido(a) {props.name} </div>
       }
+
+      // class Listado extends React.Component {
+      //   render () {
+      //     return <h1>Hello, {props.name}</h1>
+      //   }
+      // }
       ReactDOM.render(
         <div>
-          <Listador arr={['a', 'b', 'c']}/>
+          <Welcome name="Isaac"/>
+          <Welcome name="Nancy"/>
+          <Welcome name="Clemente"/>
         </div>
         , document.getElementById('root'))
     </script>
