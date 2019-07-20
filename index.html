@@ -1,0 +1,217 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Mongoose intro</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/css/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/css/theme/black.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <section>
+          <h1>REACT</h1>
+        </section>
+        <section>
+
+        </section>
+      </section>
+      <section>
+        <section>
+          <h2>JSX</h2>
+          <p>Elementos de React</p>
+        </section>
+        <section>
+          <p>
+            JSX es una extención de JS
+          </p>
+          <p>
+            Parecido a una herramienta de <i>templating</i>, pero con capacidad de utilizar dentro JS
+          </p>
+          <p>
+            Produce un <b>Elemento de React</b>
+          </p>
+        </section>
+        <section>
+          <h4>HTML en JS?</h4>
+          <pre><code data-trim contenteditable>
+            const element = <h1>Hello, world!</h1>;             
+          </code></pre>
+        </section>
+        <section>
+          <pre><code data-trim="">
+            const element = <img src={user.avatarUrl}></img>;
+          </code></pre>
+        </section>
+        <section>
+          <p>Para agregar atributos, a diferencia de HTML, que lo hace en lowercase, JSX utiliza camelCase</p>
+          <pre><code data-trim>
+            const element = <div className="mi-clase"></div>;
+          </code></pre>
+          <p>Se utiliza className y no class porque es una palabra reservada en JS</p>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h3>Componentes de React</h3>
+        </section>
+        <section>
+          <p>Nos ayudarán a tener código reutilizable que puede cambiar seǵun los parámetros que recibe</p>
+        </section>
+        <section>
+          <p>Hay dos maneras de definir un Componente </p>
+          <ul>
+            <li>con una function</li>
+            <li>con una Class</li>
+          </ul>
+          <p>Lo más importante de un Componente de React es que:</p>
+          <ul>
+            <li>Debe de poder recibir parámetros (props)</li>
+            <li>Debe de regresar un Elemento de React (jsx)</li>
+          </ul>
+        </section>
+        <section>
+          <h4>Componente con function</h4>
+          <p>(dump component)</p>
+          <pre><code data-trim>
+            function Welcome(props) {
+              return <h1>Hello, {props.name}</h1>;
+            }
+          </code></pre>
+        </section>
+        <section>
+          <h4>Componente con Class</h4>
+          <p>(smart component)</p>
+          <pre><code data-trim>
+            class Welcome extends React.Component {
+              render() {
+                return <h1>Hello, {this.props.name}</h1>;
+              }
+            }
+          </code></pre>
+        </section>
+        <section>
+          <p>
+            La principal diferencia entre un dump y un smart component es que el smart tiene la capacidad de mantener y manipular su propio state
+          </p>
+        </section>
+        <section>
+          <pre><code data-trim>
+            function Welcome(props) {
+              return <h1>Hello, {props.name}</h1>;
+            }
+            
+            function App() {
+              return (
+                <div>
+                  <Welcome name="Sara" />
+                  <Welcome name="Cahal" />
+                  <Welcome name="Edite" />
+                </div>
+              );
+            }
+            
+            ReactDOM.render(
+              <App />,
+              document.getElementById('root')
+            );
+          </code></pre>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h4> template React simple</h4>
+        </section>
+        <section>
+          <pre><code data-trim>
+            <!DOCTYPE html>
+            <html>
+              <head>
+                <meta charset="UTF-8" />
+                <title>Hello World</title>
+                <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+                <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+                
+                <!-- Don't use this in production: -->
+                <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+              </head>
+              <body>
+                <div id="root"></div>
+                <script type="text/babel">
+                  // function Welcome (props) {
+                  //   return <div>Bienvenido(a) {props.name} </div>
+                  // }
+                  class Listador extends React.Component {
+                    render () {
+                      const lista = this.props.arr.map((elem, index) => {
+                        return <li key={index}>{elem}</li>
+                      })
+                      return <ul>
+                        { lista }
+                        </ul>
+                    }
+                  }
+                  ReactDOM.render(
+                    <div>
+                      <Listador arr={['a', 'b', 'c']}/>
+                    </div>
+                    , document.getElementById('root'))
+                </script>
+              </body>
+            </html>
+          </code></pre>
+        </section>
+      </section>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/lib/js/head.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/js/reveal.min.js"></script>
+
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      transition: 'zoom',
+      dependencies: [{
+          src: 'https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/plugin/markdown/marked.js'
+        },
+        {
+          src: 'https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/plugin/markdown/markdown.js'
+        },
+        {
+          src: 'https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/plugin/notes/notes.js',
+          async: true
+        },
+        {
+          src: 'https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/plugin/highlight/highlight.js',
+          async: true,
+          callback: function () {
+            hljs.initHighlightingOnLoad();
+          }
+        }
+      ]
+    });
+  </script>
+</body>
+
+</html>
