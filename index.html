@@ -57,13 +57,13 @@
           </code></pre>
         </section>
         <section>
-          <pre><code data-trim="">
+          <pre><code data-trim contenteditable>
             const element = <img src={user.avatarUrl}></img>;
           </code></pre>
         </section>
         <section>
           <p>Para agregar atributos, a diferencia de HTML, que lo hace en lowercase, JSX utiliza camelCase</p>
-          <pre><code data-trim>
+          <pre><code data-trim con  itable>
             const element = <div className="mi-clase"></div>;
           </code></pre>
           <p>Se utiliza className y no class porque es una palabra reservada en JS</p>
@@ -80,7 +80,7 @@
           <p>Hay dos maneras de definir un Componente </p>
           <ul>
             <li>con una function</li>
-            <li>con una Class</li>
+            <li>con una Class que extiene React.Component</li>
           </ul>
           <p>Lo más importante de un Componente de React es que:</p>
           <ul>
@@ -114,7 +114,7 @@
           </p>
         </section>
         <section>
-          <pre><code data-trim>
+          <pre><code data-trim contenteditable >
             function Welcome(props) {
               return <h1>Hello, {props.name}</h1>;
             }
