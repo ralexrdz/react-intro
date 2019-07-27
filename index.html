@@ -224,12 +224,18 @@
         </section>
         <section>
           <h3>React-router</h3>
-          <a href="https://reacttraining.com/react-router/web/guides/quick-start">Documentación</a>
+          <a target="_blank" href="https://reacttraining.com/react-router/web/guides/quick-start">Documentación</a>
+        </section>
+        <section>
+          <h5>Install</h5>
+          <pre><code>
+
+          </code></pre>
         </section>
         <section>
           <h4>Cosas importantes a recordar</h4>
           <ul>
-            <li>En index.js hay que rodear nuestra app con el componente BrowserRouter para cachar los cambios de ruta y comunicarle a App sobre ello</li>
+            <li>En index.js hay que rodear nuestra App con el componente BrowserRouter para cachar los cambios de ruta y comunicarle a App sobre ello</li>
             <li>
               Se usan los componentes Switch y Route para definir posibles rutas (es posible definir Routes)
             </li>
@@ -255,7 +261,7 @@
           <h5>Switch y Route</h5>
           <p>Si el url hace match con el parametro path de algún Route, cargará el componente que define</p>
           <pre><code data-trim>
-              &lt;Route&gt;s next to each other. The &lt;Switch&gt; component is used to group &lt;Route&gt;s together.&lt;Switch&gt;
+              &lt;Switch&gt; component is used to group &lt;Route&gt;s together.&lt;Switch&gt;
                   &lt;Route exact path="/" component={Home} /&gt;
                   &lt;Route path="/about" component={About} /&gt;
                   &lt;Route path="/contact" component={Contact} /&gt;
